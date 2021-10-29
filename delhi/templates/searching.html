@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% block title %}Searching{% endblock  %}
+{% block content %}
+<br>
+{% if states %}
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for state in states %}
+            <tr>
+                <td><a href="/category/?{{state.name}}">{{state.name}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if category %}
+<div class="container-fluid">
+
+    <table class="table">
+        <thead>
+            <tr>
+              
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cat in category %}
+            <tr>
+               
+                <td><a href="/subcategory/?{{cat.name}}"> {{cat.name}}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if subcategory %}
+<div class="container-fluid">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">s_no</th>
+                <th scope="col">Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for sub in subcategory %}
+            <tr>
+                <th scope="row"></th>
+                <td><a href="/subcategory/" > {{sub.name}}</a></td>
+            </tr>
+            {% endfor %}
+         
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+{% if jobs %}
+<div class="container-fluid">
+
+    <table class="table">
+        <thead>
+            <tr>
+              
+                <th scope="col">Name</th>
+                <th scope="col">jobPosition</th>
+                <th scope="col">Location</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for job in jobs %}
+            <tr>
+               {% comment %} /companydetails/?{{job.companydetails.name}} {% endcomment %}
+                <td><a href="//" style="text-decoration: none;"> {{job.companydetails.name}}</a></td>
+                <td>{{job.jobPosition}}</td>
+              <td>{{job.Location}}</td>
+            </tr>
+            {% endfor %}
+         
+        </tbody>
+    </table>
+</div>
+{% endif %}
+
+
+{%endblock%}
+

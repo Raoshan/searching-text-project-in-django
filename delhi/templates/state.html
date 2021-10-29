@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock  %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="left-sidebar">
+                <h6>Category</h6>
+			          <div class="panel-group category-products brands_products">						
+                  {%for ct in category%}			
+					        <div class="panel panel-default">
+						        <div class="panel-heading">
+							        <h6 class="panel-title"><a href="/?category={{ct.id}}">{{ct.category}}</a></h6>
+						        </div>
+				          </div>
+                  {%endfor%}						
+			          </div>
+            </div>
+        </div>    
+        <div class="col-sm">
+           One of three columns
+        </div>
+        <div class="col-sm">
+           One of three columns
+        </div>
+    </div>
+</div>
+{% endblock  %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock  %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 "></div>
+      <div class="col-sm-6 bg-light">
+      <h4 class="text-center text-success">Login Page...</h4>
+      <form  class="container" action="login" method="POST">
+      {% csrf_token %}
+        <div class="mb-3">
+           <label for="exampleInputEmail1" class="form-label">Username</label>
+           <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" name="password" id="exampleInputPassword">
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        
+      </form>
+        <div>
+           
+           {%for message in messages%}
+           <p class="text-center text-danger">{{message}}</p>
+           {%endfor%} 
+       
+           <center><p>Don't have accounts <a href="register" ><b>Register</b></a></p></center>
+           
+        </div>
+       
+
+      </div>   
+    <div class="col-sm-3"></div>  
+  </div>
+<div>
+{% endblock %}

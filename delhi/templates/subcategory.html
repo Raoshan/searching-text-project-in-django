@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}SubCategory Scraping{% endblock  %}
+{% block content %}
+<br>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3">
+      <table class="table">   
+        <tbody>
+          <tr>        
+            <td><a type="submit" href="/subcategory/?name" style="text-decoration: none; color:brown" name="sub" id="sub">All SubCategory here...</a></td>
+          </tr>
+            {% for sub in subcategory%}
+              <tr>       
+                <td><a href="/job/?{{sub.name}}" style="text-decoration: none;">{{sub.name}}</a></td>
+              </tr>
+            {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-9">
+    <form class="d-flex" action="/searchingsub" method="get">{% csrf_token %}
+        <input class="form-control me-2" type="search" name="query" placeholder="Search" aria-label="Search"  id="query">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>    
+</div>
+
+{% endblock  %}      

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock  %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-3 "></div>
+      <div class="col-sm-6 bg-light">
+        <h3 class="text-center text-success">Registration Page...</h3>
+        <form class="container" action="register" method="POST">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" name="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail2" name="email" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" name="password1">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Confirm_password</label>
+          <input type="password" class="form-control" id="exampleInputPassword2" name="password2">
+        </div>
+  
+        <button type="submit" id="btn" class="btn btn-primary">Register</button>
+        </form>
+      <div>
+      </div>
+           {%for message in messages%}
+           <p class="text-center text-success">{{message}}</p>
+           {%endfor%} 
+          <center><p>If you have already registered <a href="login" ><b>Login</b></a></p></center>
+      <div class="col-sm-3"></div>
+  </div>
+</div>
+{% endblock%}  
+

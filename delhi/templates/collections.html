@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Atg Scraping{% endblock  %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+           <h3>Hello Collections Category</h3>
+               <div class="row">
+                    {%for cat in category%}
+                        <div class="col-md-4">
+                            <a href="{%url 'homeview' cat.id%}">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <strong>{{cat.name}}</strong>                                    
+                                    </div>
+                                </div>
+                            </a>    
+                        </div>
+                    {%endfor%}
+               </div>              
+        </div>
+    </div>
+</div>
+{% endblock  %}

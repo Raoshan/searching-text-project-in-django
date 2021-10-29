@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Category{% endblock  %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <div class="left-sidebar">                
+			    <div class="panel-group category-products brands_products">	
+                {%if category %}					
+                    {%for ct in category%}			
+                    {%for job in jobs%}			
+					    <div class="panel panel-default">
+					        <div class="panel-heading">
+					             <h6 class="panel-title">Searched...<a href="/?catid={{job.id}}">{{ct.category}}</a></h6>
+					        </div>
+				        </div>
+                    {%endfor%}
+                    {%endfor%}
+                {%else%}
+                     <h6 class="text-danger">{{search}}</h6>
+                     <h6 class="text-secondary">Error category, try to another</h6>
+                {%endif%} 						
+			    </div>
+            </div>
+        </div>           
+    </div>
+</div>
+{% endblock  %}

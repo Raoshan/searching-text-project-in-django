@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Company Details Scraping{% endblock  %}
+{% block content %}
+ 
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">         
+            <div class="row">    
+                {%for comp in companydetails%}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">            
+                                <strong>{{comp.name}}</strong><br><hr>
+                                <p>{{comp.description}}</p><br>
+                                <strong>{{comp.state}}</strong><br><hr>
+                                <strong>{{comp.no_of_emp}}</strong>
+                            </div>
+                        </div>
+                    </div> 
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock  %}
